@@ -1,0 +1,37 @@
+REVERSE A WORD(Everything in loop) -Method 2 
+
+DECLARE  
+
+  
+
+in_string VARCHAR2(500); 
+
+pros_string  VARCHAR2(500); 
+
+out_string  VARCHAR2(800);   
+
+spce_cnt NUMBER;  
+
+  
+
+BEGIN 
+
+  
+
+in_string := 'AAA BBB CCCC DDDD EEEE FFFF GGGG HHHH IIII JJJJ KKKK LLLL'; 
+
+pros_string := ' '||in_string||' ' ;    
+
+spce_cnt := REGEXP_COUNT(pros_string,' ',1); 
+
+FOR i IN reverse  1.. spce_cnt-1   
+
+LOOP                                
+
+out_string := out_string||' '|| SubStr (pros_string,InStr(pros_string, ' ',1,i)+1 ,InStr(SubStr (pros_string,InStr(pros_string, ' ',1,i)+1 ),' '  ));     
+
+Dbms_Output.Put_Line(out_string);     
+
+END LOOP;  
+
+END; 
